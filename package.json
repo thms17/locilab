@@ -57,7 +57,9 @@
   },
   "dependencies": {
     "@finsweet/ts-utils": "^0.39.2",
+    "express": "^4.21.1",
     "gsap": "^3.12.2",
+    "http-proxy-middleware": "^3.0.3",
     "split-type": "^0.3.3"
   },
   "engines": {

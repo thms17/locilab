@@ -1,11 +1,8 @@
-// index.js - Node.js-Server und Proxy-Setup
-
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
 
-// Proxy-Server-Setup
 app.use(
   '/api',
   createProxyMiddleware({
@@ -18,5 +15,5 @@ app.use(
 );
 
 app.listen(3001, () => {
-  console.log('Anwendung und Proxy laufen auf http://localhost:3001');
+  console.log('Lokaler Proxy läuft auf http://localhost:3001');
 });
