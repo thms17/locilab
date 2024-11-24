@@ -5,10 +5,7 @@
   "homepage": "https://github.com/finsweet/developer-starter#readme",
   "license": "ISC",
   "keywords": [],
-  "author": {
-    "name": "Finsweet",
-    "url": "https://finsweet.com/"
-  },
+  "author": "Finsweet (https://finsweet.com/)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/finsweet/developer-starter.git"
@@ -60,9 +57,17 @@
     "express": "^4.21.1",
     "gsap": "^3.12.2",
     "http-proxy-middleware": "^3.0.3",
+    "leaflet": "^1.9.4",
+    "node-fetch": "^3.3.2",
     "split-type": "^0.3.3"
   },
   "engines": {
     "pnpm": ">=8"
+  },
+  "bin": {
+    "developer-starter": "bin/build.js"
+  },
+  "directories": {
+    "test": "tests"
   }
 }
