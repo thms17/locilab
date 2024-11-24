@@ -1,26 +1,20 @@
 import express from 'express'
-import fetch from 'node-fetch'
+import { createProxyMiddleware } from 'http-proxy-middleware'
 
 const app = express()
-const PORT = 3001 // Lokaler Port für deinen Proxy
 
-// Proxy-Route
-app.get('/proxy', async (req, res) => {
-  const { url } = req.query
-  if (!url) {
-    return res.status(400).send('Fehler: Kein URL-Parameter angegeben.')
-  }
+app.use(
+  '/api',
+  createProxyMiddleware({
+    target: 'https://www.geoportal.rlp.de', // Ziel-API
+    changeOrigin: true, // CORS umgehen
+    pathRewrite: {
+      '^/api': '', // Entfernt "/api" vom Pfad
+    },
+  })
+)
 
-  try {
-    const response = await fetch(url)
-    const data = await response.json()
-    res.json(data)
-  } catch (error) {
-    console.error('Fehler beim Abrufen der Daten:', error)
-    res.status(500).send('Serverfehler beim Abrufen der Daten.')
-  }
-})
-
+const PORT = 3001
 app.listen(PORT, () => {
   console.log(`Proxy läuft auf http://localhost:${PORT}`)
 })

@@ -20,7 +20,7 @@ function initializeMap() {
   }
 
   function ladeFlurstueck(flurstueckNummer) {
-    const url = `https://www.geoportal.rlp.de/spatial-objects/519/collections/ave:Flurstueck/items?flstkennz=${encodeURIComponent(
+    const url = `http://localhost:3001/api/spatial-objects/519/collections/ave:Flurstueck/items?flstkennz=${encodeURIComponent(
       flurstueckNummer
     )}&f=json`
 
